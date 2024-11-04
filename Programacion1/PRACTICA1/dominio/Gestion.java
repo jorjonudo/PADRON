@@ -18,7 +18,7 @@ public class Gestion implements Serializable {
 		for (Producto h : Balones) {
 			cad.append(h).append("\n"); 
 		}
-		cad.append("Total de habitantes: ").append(calcularNumeroBalones()).append("\n");
+		cad.append("Total de balones: ").append(calcularNumeroBalones()).append("\n");
 		return cad.toString(); // Devuelve la cadena completa
 	}
 }
