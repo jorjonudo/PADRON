@@ -13,13 +13,13 @@ public class InterfazUsuario {
 	public boolean ejecutar(String[] instruccion) {
 		// Comprueba si la instrucción contiene solo un comando
 		if (instruccion.length == 1) {
-			// Si el comando es "mostrar", imprime el padrón en la consola
+			// Si el comando es "mostrar", imprime el Producto en la consola
 			if (instruccion[0].equals("mostrar")) {
 				System.out.println(Producto);
 				// Si el comando es "ayuda", muestra las opciones disponibles
 			} else if (instruccion[0].equalsIgnoreCase("ayuda")) {
 				System.out.println("opciones: \n mostrar \n ayuda \n añadir <nombre> <tipo> <precio> \n");
-				// Si el comando es "salir", guarda el padrón y finaliza el programa
+				// Si el comando es "salir", guarda el Producto y finaliza el programa
 			} else if (instruccion[0].equalsIgnoreCase("salir")) {
 				escribirGestion();
 				System.out.println("Finalizado con exito");
@@ -28,7 +28,7 @@ public class InterfazUsuario {
 				// Si el comando no es reconocido, muestra un mensaje de error
 				System.out.println("Error en la instrucción. Ayuda para más info");
 			}
-			// Si el comando es "anadir" y hay suficientes argumentos, añade un nuevo habitante
+			// Si el comando es "anadir" y hay suficientes argumentos, añade un nuevo producto
 		} else if (instruccion[0].equalsIgnoreCase("anadir") && instruccion.length == 4) {
 			Producto.annadir(new Producto(instruccion[1], instruccion[2], instruccion[3]));
 			System.out.println("Producto añadido correctamente");
@@ -48,11 +48,11 @@ public class InterfazUsuario {
 	private void leerProducto() {
 		ObjectInputStream oi;  // Declaración del ObjectInputStream para leer objetos
 		try {
-			// Intenta abrir el archivo y leer el objeto OficinaPadron
+			// Intenta abrir el archivo y leer el objeto Gestion
 			oi = new ObjectInputStream(new FileInputStream("Producto.dat"));
 			Producto = (Gestion) oi.readObject();
 		} catch (Exception e) {
-			// Si hay un error (archivo no encontrado, etc.), se inicializa un nuevo OficinaPadron
+			// Si hay un error (archivo no encontrado, etc.), se inicializa un nuevo Gestion
 			Producto = new Gestion();
 		}
 	}
@@ -69,6 +69,6 @@ public class InterfazUsuario {
 	}
 	// Constructor de la clase InterfazUsuario
 	public InterfazUsuario() {
-		leerProducto();  // Al crear una instancia, se lee el padrón desde el archivo
+		leerProducto();  // Al crear una instancia, se lee el Producto desde el archivo
 	}
 }
