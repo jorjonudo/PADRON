@@ -21,7 +21,7 @@ public class InterfazUsuario {
 				System.out.println("opciones: \n mostrar \n ayuda \n añadir <nombre> <tipo> <precio> \n");
 				// Si el comando es "salir", guarda el padrón y finaliza el programa
 			} else if (instruccion[0].equalsIgnoreCase("salir")) {
-				escribirPadron();
+				escribirGestion();
 				System.out.println("Finalizado con exito");
 				return false;  // Indica que el programa debe finalizar
 			} else {
